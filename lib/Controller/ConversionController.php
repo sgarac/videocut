@@ -31,9 +31,9 @@ class ConversionController extends Controller {
 		$file = $this->getFile($directory, $nameOfFile);
 		$time = shell_exec('/home/sgarac/bin/filesize.sh "'.$file.'"');
 		$type = shell_exec('/home/sgarac/bin/fileType.sh "'.$file.'"');
-		if (strpos($type,"Audio")!==false) {
+		if (strpos($type,"audio")!==false) {
 			$type = "audio";
-		}else if (strpos($type,"Video")!==false) {
+		}else if (strpos($type,"video")!==false) {
 			$type = "video";
 		}
 		return json_encode( array( "code" => 1, "timeline" => trim($time), "type" => $type) );
