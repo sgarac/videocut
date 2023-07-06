@@ -1,0 +1,6 @@
+#hello {
+	color: red;
+}
+.fullscreen {
+	width:calc(100% - 20px);
+}

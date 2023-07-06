@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>videocut</id>
+    <name>videocut</name>
+    <summary>video cutter  using ffmpeg within the web interface</summary>
+    <description><![CDATA[Video cutter within the web interface, form to know the start and end point, requires ffmpeg]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="sgarac@gmail.com" >Sassoun Garac</author>
+    <namespace>videocut</namespace>
+    <category>multimedia</category>
+    <category>tools</category>
+    <bugs>https://github.com/sgarac81/videocut</bugs>
+    <dependencies>
+        <nextcloud min-version="13" max-version="26" />
+    </dependencies>
+</info>
