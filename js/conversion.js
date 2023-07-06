@@ -23,7 +23,7 @@ $(document).ready(function () {
 				var output = [a.slice(0, position), b, a.slice(position)].join('');
 				var type='';
 				$.ajax({
-					type: "POST",
+					type: "GET",
 					async: "true",
 					url: OC.filePath('videocut', 'ajax', 'getSize.php'),
 					data: {nameOfFile: filename, directory: context.dir, external: context.fileInfoModel.attributes.mountType == "external"?1:0},

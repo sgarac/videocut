@@ -5,7 +5,7 @@
     <name>videocut</name>
     <summary>video cutter  using ffmpeg within the web interface</summary>
     <description><![CDATA[Video cutter within the web interface, form to know the start and end point, requires ffmpeg]]></description>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <licence>agpl</licence>
     <author mail="sgarac@gmail.com" >Sassoun Garac</author>
     <namespace>videocut</namespace>

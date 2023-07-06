@@ -17,7 +17,7 @@ return [
 	[
             'name' => 'conversion#getsize',
             'url' => 'ajax/getSize.php',
-            'verb' => 'POST'
+            'verb' => 'GET'
 	]
     ]
 ];
