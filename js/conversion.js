@@ -32,9 +32,6 @@ $(document).ready(function () {
 						type = response.type;
 						if (response.code == 1) {
 							t = response.timeline.split(':');
-							/*document.getElementById("endHours").value = t[0];
-							document.getElementById("endMins").value = t[1];
-							document.getElementById("endSecs").value = t[2];*/
 							html='';
 							url = "https://"+window.location.hostname+"/remote.php/dav/files/"+oc_current_user+context.dir+'/'+filename;
 							if (type === "audio") {
@@ -46,6 +43,7 @@ $(document).ready(function () {
 							document.getElementById('player').innerHTML=html;
 							document.getElementById('media').src=url;
 							loadDuration=function(){
+								try {
 								d=document.getElementById('media').duration;
 								a=[];
 								b=Math.floor(d/3600);
@@ -65,6 +63,7 @@ $(document).ready(function () {
 								document.getElementById('endHours').value = a[0];
 								document.getElementById('endMins').value = a[1];
 								document.getElementById('endSecs').value =a[2]+'.'+a[3];
+								}catch (error){}
 							};
 							setTimeout(loadDuration,1000);
 						} else {
