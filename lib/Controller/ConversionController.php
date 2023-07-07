@@ -29,7 +29,6 @@ class ConversionController extends Controller {
 	}
 	public function  getSize($nameOfFile, $directory, $external) {
 		$file = $this->getFile($directory, $nameOfFile);
-		$time = shell_exec('/home/sgarac/bin/filesize.sh "'.$file.'"');
 		$type = mime_content_type($file);
 		if (strpos($type,"audio")!==false) {
 			$type = "audio";

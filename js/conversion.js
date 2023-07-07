@@ -32,20 +32,41 @@ $(document).ready(function () {
 						type = response.type;
 						if (response.code == 1) {
 							t = response.timeline.split(':');
-							document.getElementById("endHours").value = t[0];
+							/*document.getElementById("endHours").value = t[0];
 							document.getElementById("endMins").value = t[1];
-							document.getElementById("endSecs").value = t[2];
+							document.getElementById("endSecs").value = t[2];*/
 							html='';
 							url = "https://"+window.location.hostname+"/remote.php/dav/files/"+oc_current_user+context.dir+'/'+filename;
 							if (type === "audio") {
-								//https://nextcloud.sgarac.fr/remote.php/dav/files/Sassoun/Basement%20Jaxx%20-%20Rendez%20Vu%20(%20Official%20Video%20)%20Remedy.mp3
-								html='<audio controls="controls" src="'+url+'" width="100%">Votre navigateur ne supporte pas la balise audio</audio>';
+								html='<audio id="media" controls="controls" src="" width="100%">Votre navigateur ne supporte pas la balise audio</audio>';
 							}
 							else if (type === "video") {
-								//height = window.innerHeight - document.getElementById("linkeditor_container").offsetHeight;
-								html='<video controls="controls" src="'+url+'" width="100%">Votre navigateur ne supporte pas la balise video</video>';
+								html='<video id="media" controls="controls" src="" width="100%">Votre navigateur ne supporte pas la balise video</video>';
 							}
 							document.getElementById('player').innerHTML=html;
+							document.getElementById('media').src=url;
+							loadDuration=function(){
+								d=document.getElementById('media').duration;
+								a=[];
+								b=Math.floor(d/3600);
+								b=b<10?'0'+b:b;
+								a.push(b);
+								d=d%3600;
+								b=Math.floor(d/60);
+								b=b<10?'0'+b:b;
+								a.push(b);
+								d=d%60;
+								b=Math.floor(d);
+								b=b<10?'0'+b:b;
+								a.push(b);
+								b=Math.floor((d-Math.floor(d))*1000);
+								b=b>100?b:b>10?'0'+b:'00'+b;
+								a.push(b);
+								document.getElementById('endHours').value = a[0];
+								document.getElementById('endMins').value = a[1];
+								document.getElementById('endSecs').value =a[2]+'.'+a[3];
+							};
+							setTimeout(loadDuration,1000);
 						} else {
 							context.fileList.showFileBusyState(tr, false);
 							//OC.dialogs.alert( t('videocutter', response.desc), t('videocutter', 'Error converting ' + filename) );
